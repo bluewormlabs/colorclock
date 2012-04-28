@@ -3,8 +3,8 @@ Color Clock
 
 About
 -----
-We're fans of [The Colour Clock][1]. Unfortunately, it's written in Flash and 
-run by small screensaver wrappers. This leads to bugs (particularly with 
+We're fans of [The Colour Clock][TCC]. Unfortunately, it's written in Flash 
+and run by small screensaver wrappers. This leads to bugs (particularly with 
 multiple displays) and performance issues.
 
 Being software developers, we decided to just write our own.
@@ -25,4 +25,4 @@ Mac
 ---
 Coming soon!
 
-	[1]: http://www.thecolourclock.co.uk/
+[TCC]: http://www.thecolourclock.co.uk/
