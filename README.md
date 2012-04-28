@@ -14,7 +14,7 @@ Windows
 There are currently no binaries available.
 
 The source code (under the `win` directory) should build and run on any 
-Windows sytem with .NET 2.0 or newer. Note that he project and solution files 
+Windows sytem with .NET 2.0 or newer. Note that the project and solution files 
 are in Visual Studio 2010 format.
 
 After building the project, copy the resulting `.exe` to your System32 folder
