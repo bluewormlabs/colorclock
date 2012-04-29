@@ -59,6 +59,7 @@
 			// 
 			this.hexLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.hexLabel.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.hexLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
 			this.hexLabel.Location = new System.Drawing.Point(12, 315);
 			this.hexLabel.Name = "hexLabel";
 			this.hexLabel.Size = new System.Drawing.Size(514, 20);
