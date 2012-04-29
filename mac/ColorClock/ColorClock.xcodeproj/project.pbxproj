@@ -1,0 +1,298 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B25EAE7154B78EB00157002 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25EAE6154B78EB00157002 /* Cocoa.framework */; };
+		9B25EAE9154B78EB00157002 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B25EAE8154B78EB00157002 /* ScreenSaver.framework */; };
+		9B25EAF3154B78EB00157002 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B25EAF1154B78EB00157002 /* InfoPlist.strings */; };
+		9B25EAF6154B78EB00157002 /* ColorClockView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B25EAF5154B78EB00157002 /* ColorClockView.h */; };
+		9B25EAF8154B78EB00157002 /* ColorClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25EAF7154B78EB00157002 /* ColorClockView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9B25EAE3154B78EB00157002 /* ColorClock.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorClock.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B25EAE6154B78EB00157002 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		9B25EAE8154B78EB00157002 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
+		9B25EAEB154B78EB00157002 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		9B25EAEC154B78EB00157002 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9B25EAED154B78EB00157002 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9B25EAF0154B78EB00157002 /* ColorClock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorClock-Info.plist"; sourceTree = "<group>"; };
+		9B25EAF2154B78EB00157002 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B25EAF4154B78EB00157002 /* ColorClock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorClock-Prefix.pch"; sourceTree = "<group>"; };
+		9B25EAF5154B78EB00157002 /* ColorClockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorClockView.h; sourceTree = "<group>"; };
+		9B25EAF7154B78EB00157002 /* ColorClockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorClockView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B25EADE154B78EB00157002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B25EAE7154B78EB00157002 /* Cocoa.framework in Frameworks */,
+				9B25EAE9154B78EB00157002 /* ScreenSaver.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B25EAD6154B78EA00157002 = {
+			isa = PBXGroup;
+			children = (
+				9B25EAEE154B78EB00157002 /* ColorClock */,
+				9B25EAE5154B78EB00157002 /* Frameworks */,
+				9B25EAE4154B78EB00157002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9B25EAE4154B78EB00157002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B25EAE3154B78EB00157002 /* ColorClock.saver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B25EAE5154B78EB00157002 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B25EAE6154B78EB00157002 /* Cocoa.framework */,
+				9B25EAE8154B78EB00157002 /* ScreenSaver.framework */,
+				9B25EAEA154B78EB00157002 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B25EAEA154B78EB00157002 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B25EAEB154B78EB00157002 /* AppKit.framework */,
+				9B25EAEC154B78EB00157002 /* CoreData.framework */,
+				9B25EAED154B78EB00157002 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		9B25EAEE154B78EB00157002 /* ColorClock */ = {
+			isa = PBXGroup;
+			children = (
+				9B25EAF5154B78EB00157002 /* ColorClockView.h */,
+				9B25EAF7154B78EB00157002 /* ColorClockView.m */,
+				9B25EAEF154B78EB00157002 /* Supporting Files */,
+			);
+			path = ColorClock;
+			sourceTree = "<group>";
+		};
+		9B25EAEF154B78EB00157002 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B25EAF0154B78EB00157002 /* ColorClock-Info.plist */,
+				9B25EAF1154B78EB00157002 /* InfoPlist.strings */,
+				9B25EAF4154B78EB00157002 /* ColorClock-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		9B25EADF154B78EB00157002 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B25EAF6154B78EB00157002 /* ColorClockView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9B25EAE2154B78EB00157002 /* ColorClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B25EAFB154B78EB00157002 /* Build configuration list for PBXNativeTarget "ColorClock" */;
+			buildPhases = (
+				9B25EADD154B78EB00157002 /* Sources */,
+				9B25EADE154B78EB00157002 /* Frameworks */,
+				9B25EADF154B78EB00157002 /* Headers */,
+				9B25EAE0154B78EB00157002 /* Resources */,
+				9B25EAE1154B78EB00157002 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColorClock;
+			productName = ColorClock;
+			productReference = 9B25EAE3154B78EB00157002 /* ColorClock.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B25EAD8154B78EA00157002 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "South Dakota State University";
+			};
+			buildConfigurationList = 9B25EADB154B78EA00157002 /* Build configuration list for PBXProject "ColorClock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9B25EAD6154B78EA00157002;
+			productRefGroup = 9B25EAE4154B78EB00157002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B25EAE2154B78EB00157002 /* ColorClock */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B25EAE0154B78EB00157002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B25EAF3154B78EB00157002 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		9B25EAE1154B78EB00157002 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B25EADD154B78EB00157002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B25EAF8154B78EB00157002 /* ColorClockView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9B25EAF1154B78EB00157002 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B25EAF2154B78EB00157002 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B25EAF9154B78EB00157002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9B25EAFA154B78EB00157002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9B25EAFC154B78EB00157002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ColorClock/ColorClock-Prefix.pch";
+				INFOPLIST_FILE = "ColorClock/ColorClock-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		9B25EAFD154B78EB00157002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ColorClock/ColorClock-Prefix.pch";
+				INFOPLIST_FILE = "ColorClock/ColorClock-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B25EADB154B78EA00157002 /* Build configuration list for PBXProject "ColorClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B25EAF9154B78EB00157002 /* Debug */,
+				9B25EAFA154B78EB00157002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B25EAFB154B78EB00157002 /* Build configuration list for PBXNativeTarget "ColorClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B25EAFC154B78EB00157002 /* Debug */,
+				9B25EAFD154B78EB00157002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B25EAD8154B78EA00157002 /* Project object */;
+}
