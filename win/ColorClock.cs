@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,6 +15,20 @@ namespace ColorClock
 	/// </summary>
 	public partial class ColorClock : Form
 	{
+		#region API Methods
+		[DllImport("user32.dll")]
+		static extern IntPtr SetParent(IntPtr hChildWindow, IntPtr hNewParentWindow);
+
+		[DllImport("user32.dll")]
+		static extern int SetWindowLong(IntPtr hWindow, int index, IntPtr newLong);
+		
+		[DllImport("user32.dll", SetLastError = true)]
+		static extern int GetWindowLong(IntPtr hWindow, int index);
+
+		[DllImport("user32.dll")]
+		static extern bool GetClientRect(IntPtr hWindow, out Rectangle rect);
+		#endregion API Methods
+
 		#region Data Members
 		/// <summary>
 		/// The last known location of the mouse; used to determine if
@@ -24,7 +39,12 @@ namespace ColorClock
 		/// <summary>
 		/// The font to use on the labels
 		/// </summary>
-		private Font font = new Font("Arial", 100f);
+		private Font font = new Font("Verdana", 100f);
+
+		/// <summary>
+		/// Whether or not we're a preview window
+		/// </summary>
+		private bool previewMode = false;
 		#endregion Data Members
 
 		#region Constructors
@@ -40,7 +60,32 @@ namespace ColorClock
 
 			// Set the fonts on the two labels
 			this.timeLabel.Font = this.font;
-			this.hexLabel.Font = new Font(this.font.FontFamily, 14f);
+			this.hexLabel.Font = new Font(this.font.FontFamily, this.font.Size / 10);
+		}
+
+		public ColorClock(IntPtr hWindow)
+		{
+			InitializeComponent();
+
+			// Make the preview window our parent
+			SetParent(this.Handle, hWindow);
+
+			// Make it a child window; GetWindowLong(this.Handle, GWL_STYLE) | WS_CHILD
+			SetWindowLong(this.Handle, -16, new IntPtr(GetWindowLong(this.Handle, -16) | 0x40000000));
+
+			// Move the window inside the parent window
+			Rectangle parent;
+			GetClientRect(hWindow, out parent);
+			this.Size = parent.Size;
+			this.Location = new Point(0, 0);
+
+			// Set a more reasonable font size for the preview
+			this.font = new Font(this.font.FontFamily, 6);
+			this.timeLabel.Font = this.font;
+			this.hexLabel.Font = new Font(this.font.FontFamily, this.font.Size / 10);
+
+			// Mark that we're a preview
+			this.previewMode = true;
 		}
 		#endregion Constructors
 
@@ -95,7 +140,10 @@ namespace ColorClock
 		/// <param name="e">arguments for the event</param>
 		private void ColorClock_KeyPress(object sender, KeyPressEventArgs e)
 		{
-			Application.Exit();
+			if (!this.previewMode)
+			{
+				Application.Exit();
+			}
 		}
 
 		/// <summary>
@@ -129,7 +177,9 @@ namespace ColorClock
 			Color color = ColorTranslator.FromHtml(hex);
 
 			// Update everything
+			this.timeLabel.Font = this.font;
 			this.timeLabel.Text = now.ToString("T");
+			this.hexLabel.Font = new Font(this.font.FontFamily, this.font.Size / 10);
 			this.hexLabel.Text = hex;
 			this.BackColor = color;
 		}

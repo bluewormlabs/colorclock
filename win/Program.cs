@@ -47,8 +47,13 @@ namespace ColorClock
 				}
 				else if ("/p" == first)
 				{
-					// TODO: preview mode
-					return;
+					if (null == second)
+					{
+						MessageBox.Show("Preview window handle not provided.", Program.AppName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+					}
+
+					IntPtr hWindow = new IntPtr(long.Parse(second));
+					Application.Run(new ColorClock(hWindow));
 				}
 				else if ("/s" == first)
 				{
