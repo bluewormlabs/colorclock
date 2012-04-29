@@ -45,6 +45,28 @@ namespace ColorClock
 		/// Whether or not we're a preview window
 		/// </summary>
 		private bool previewMode = false;
+
+		#region Colors
+		/// <summary>
+		/// The alpha level for text fields
+		/// </summary>
+		private static readonly int Alpha = 60;
+
+		/// <summary>
+		/// Black
+		/// </summary>
+		private static readonly Color Black = Color.Black;
+
+		/// <summary>
+		/// White at 60% opacity
+		/// </summary>
+		private static readonly Color White = Color.FromArgb(ColorClock.Alpha, Color.White);
+
+		/// <summary>
+		/// White Smoke at 60% opacity
+		/// </summary>
+		private static readonly Color WhiteSmoke = Color.FromArgb(ColorClock.Alpha, Color.WhiteSmoke);
+		#endregion Colors
 		#endregion Data Members
 
 		#region Constructors
@@ -55,12 +77,16 @@ namespace ColorClock
 		public ColorClock(Rectangle bounds)
 		{
 			InitializeComponent();
+			this.SetBlack();
 			this.Bounds = bounds;
-			this.UpdateTime();
 
 			// Set the fonts on the two labels
 			this.timeLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize());
 			this.hexLabel.Font = new Font(this.font.FontFamily, (float)(this.DetermineFontSize() / 10.0));
+
+			// Set the correct colors and display initial values
+			this.SetColors();
+			this.UpdateTime();
 		}
 
 		/// <summary>
@@ -70,6 +96,7 @@ namespace ColorClock
 		public ColorClock(IntPtr hWindow)
 		{
 			InitializeComponent();
+			this.SetBlack();
 
 			// Make the preview window our parent
 			SetParent(this.Handle, hWindow);
@@ -89,6 +116,10 @@ namespace ColorClock
 
 			// Mark that we're a preview
 			this.previewMode = true;
+
+			// Set the correct colors and display initial values
+			this.SetColors();
+			this.UpdateTime();
 		}
 		#endregion Constructors
 
@@ -161,6 +192,25 @@ namespace ColorClock
 		#endregion Event Handlers
 
 		#region Private Methods
+		/// <summary>
+		/// Sets everything to black (for the moment before the timer fires)
+		/// </summary>
+		private void SetBlack()
+		{
+			this.BackColor = ColorClock.Black;
+			this.timeLabel.ForeColor = ColorClock.Black;
+			this.hexLabel.ForeColor = ColorClock.Black;
+		}
+
+		/// <summary>
+		/// Sets the label text colors
+		/// </summary>
+		private void SetColors()
+		{
+			this.timeLabel.ForeColor = ColorClock.White;
+			this.hexLabel.ForeColor = ColorClock.WhiteSmoke;
+		}
+
 		/// <summary>
 		/// Updates the time
 		/// 
