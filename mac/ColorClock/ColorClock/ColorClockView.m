@@ -30,6 +30,10 @@
 	// Get a color and hex string for the current time
 	NSDate *date = [NSDate date];
 	NSColor *color = [self getColorForTime:date];
+    NSString *time;
+    NSDateFormatter *timeFormat = [NSDateFormatter new];
+    [timeFormat setDateFormat:@"H:mm:ss"];
+    time = [timeFormat stringFromDate:date];
 	
 	[color set];
 	
@@ -38,14 +42,12 @@
 	rectangle.size = NSMakeSize(screenSize.width, screenSize.height);
 	rectangle.origin = NSMakePoint(0, 0);
 	[NSBezierPath fillRect:rectangle];
-	//[NSBezierPath fillRect:self.frame];
 	
 	NSMutableParagraphStyle* style = [NSMutableParagraphStyle new];
 	[style setAlignment:NSCenterTextAlignment];
 	NSDictionary *attr = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
-	
-	NSString *triplet = [NSString stringWithFormat:@"(%2.5f, %2.5f, %2.5f)", [color redComponent], [color greenComponent], [color blueComponent]];
-	[triplet drawInRect:[self bounds] withAttributes:attr];
+
+	[time drawInRect:[self bounds] withAttributes:attr];
 	
 	[style release];    
 }
