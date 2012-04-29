@@ -6,6 +6,7 @@ TestResults
 Thumbs.db
 
 # Mac
+mac/ColorClock/ColorClock.xcodeproj/project.xcworkspace/xcuserdata
 mac/ColorClock/ColorClock.xcodeproj/xcuserdata
 .DS_Store
 *.o
