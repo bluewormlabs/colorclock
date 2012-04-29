@@ -11,7 +11,6 @@
 
 @interface ColorClockView : ScreenSaverView {
 @private
-	NSRect rectangle;
 }
 
 -(NSColor*) getColorForTime:(NSDate*)date;
