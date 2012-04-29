@@ -59,8 +59,8 @@ namespace ColorClock
 			this.UpdateTime();
 
 			// Set the fonts on the two labels
-			this.timeLabel.Font = this.font;
-			this.hexLabel.Font = new Font(this.font.FontFamily, this.font.Size / 10);
+			this.timeLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize()); ;
+			this.hexLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize(this.timeLabel.Font.Size / 10));
 		}
 
 		/// <summary>
@@ -83,10 +83,9 @@ namespace ColorClock
 			this.Size = parent.Size;
 			this.Location = new Point(0, 0);
 
-			// Set a more reasonable font size for the preview
-			this.font = new Font(this.font.FontFamily, 6);
-			this.timeLabel.Font = this.font;
-			this.hexLabel.Font = new Font(this.font.FontFamily, this.font.Size / 10);
+			// Set the fonts on the two labels
+			this.timeLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize()); ;
+			this.hexLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize(this.timeLabel.Font.Size / 10));
 
 			// Mark that we're a preview
 			this.previewMode = true;
@@ -186,6 +185,26 @@ namespace ColorClock
 			this.hexLabel.Font = new Font(this.font.FontFamily, this.font.Size / 10);
 			this.hexLabel.Text = hex;
 			this.BackColor = color;
+		}
+
+		/// <summary>
+		/// Determines the font size to use
+		/// </summary>
+		/// <returns>the font size (em)</returns>
+		private double DetermineFontSize()
+		{
+			return this.DetermineFontSize(20.0);
+		}
+
+		/// <summary>
+		/// Determines the font size to use
+		/// </summary>
+		/// <param name="baseSize">the base font size use</param>
+		/// <returns>the font size (em)</returns>
+		private double DetermineFontSize(double baseSize)
+		{
+			int width = Screen.GetBounds(this).Width;
+			return baseSize * ((double)width / 200.0);
 		}
 
 		/// <summary>
