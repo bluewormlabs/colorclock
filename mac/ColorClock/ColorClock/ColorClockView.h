@@ -6,6 +6,7 @@
 //
 
 #import <ScreenSaver/ScreenSaver.h>
+#import <math.h>
 
 
 @interface ColorClockView : ScreenSaverView {

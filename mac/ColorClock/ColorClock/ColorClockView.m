@@ -6,7 +6,6 @@
 //
 
 #import "ColorClockView.h"
-#include <math.h>
 
 @implementation ColorClockView
 
