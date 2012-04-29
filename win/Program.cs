@@ -40,12 +40,12 @@ namespace ColorClock
 				}
 				#endregion Get the command line arguments
 
-				if ("/c" == first)
+				if ("/c" == first) // show configuration
 				{
 					MessageBox.Show("There are no configuration options.", Program.AppName, MessageBoxButtons.OK, MessageBoxIcon.Information);
 					return;
 				}
-				else if ("/p" == first)
+				else if ("/p" == first) // preview mode
 				{
 					if (null == second)
 					{
@@ -55,7 +55,7 @@ namespace ColorClock
 					IntPtr hWindow = new IntPtr(long.Parse(second));
 					Application.Run(new ColorClock(hWindow));
 				}
-				else if ("/s" == first)
+				else if ("/s" == first) // start the screensaver
 				{
 					ShowScreenSaver();
 					Application.Run();
