@@ -63,6 +63,10 @@ namespace ColorClock
 			this.hexLabel.Font = new Font(this.font.FontFamily, this.font.Size / 10);
 		}
 
+		/// <summary>
+		/// Creates a new ColorClock window
+		/// </summary>
+		/// <param name="hWindow">a handle to the parent window (typically the Screensaver settings mini-monitor)</param>
 		public ColorClock(IntPtr hWindow)
 		{
 			InitializeComponent();
