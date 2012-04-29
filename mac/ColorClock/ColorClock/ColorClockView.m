@@ -6,7 +6,7 @@
 //
 
 #import "ColorClockView.h"
-#include <math.h>
+
 
 @implementation ColorClockView
 
@@ -32,22 +32,29 @@
 	NSColor *color = [self getColorForTime:date];
     NSString *time;
     NSDateFormatter *timeFormat = [NSDateFormatter new];
+    NSFont *font;
+    NSColor *fontColor = [NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:0.6];
     [timeFormat setDateFormat:@"H:mm:ss"];
     time = [timeFormat stringFromDate:date];
 	
 	[color set];
 	
-	// Build a rectangle to draw in
-	NSSize screenSize = [self bounds].size;
-	rectangle.size = NSMakeSize(screenSize.width, screenSize.height);
-	rectangle.origin = NSMakePoint(0, 0);
-	[NSBezierPath fillRect:rectangle];
-	
+    NSSize screenSize = rect.size;
+	[NSBezierPath fillRect:rect];	
+
+    font = [NSFont fontWithName:@"Verdana" size:200];
 	NSMutableParagraphStyle* style = [NSMutableParagraphStyle new];
 	[style setAlignment:NSCenterTextAlignment];
-	NSDictionary *attr = [NSDictionary dictionaryWithObject:style forKey:NSParagraphStyleAttributeName];
 
-	[time drawInRect:[self bounds] withAttributes:attr];
+    NSArray *values = [NSArray arrayWithObjects:font, style, fontColor, nil];
+    NSArray *keys = [NSArray arrayWithObjects:NSFontAttributeName, NSParagraphStyleAttributeName, NSForegroundColorAttributeName, nil];
+    
+	NSDictionary *attr = [NSDictionary dictionaryWithObjects:values forKeys:keys];
+    NSSize stringSize = [time sizeWithAttributes:attr];
+    CGFloat y = ((screenSize.height / 2) -  (stringSize.height / 2));
+    CGFloat x = ((screenSize.width / 2) - (stringSize.width / 2));
+    
+	[time drawAtPoint:NSMakePoint(x, y) withAttributes:attr];
 	
 	[style release];    
 }

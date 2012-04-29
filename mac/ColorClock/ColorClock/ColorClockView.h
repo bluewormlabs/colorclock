@@ -6,11 +6,11 @@
 //
 
 #import <ScreenSaver/ScreenSaver.h>
+#import <math.h>
 
 
 @interface ColorClockView : ScreenSaverView {
 @private
-	NSRect rectangle;
 }
 
 -(NSColor*) getColorForTime:(NSDate*)date;
