@@ -59,7 +59,7 @@ namespace ColorClock
 			this.UpdateTime();
 
 			// Set the fonts on the two labels
-			this.timeLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize()); ;
+			this.timeLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize());
 			this.hexLabel.Font = new Font(this.font.FontFamily, (float)(this.DetermineFontSize() / 10.0));
 		}
 
