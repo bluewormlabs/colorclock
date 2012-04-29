@@ -21,8 +21,12 @@ After building the project, copy the resulting `.exe` to your System32 folder
 and rename it; the extension must be `.scr`. You should now be able to select
 the screensaver.
 
+The Windows screensaver was built following Frank McCown's 
+[Creating a Screen Saver with C#][WinTut].
+
 Mac
 ---
 Coming soon!
 
 [TCC]: http://www.thecolourclock.co.uk/
+[WinTut]: http://www.harding.edu/fmccown/screensaver/screensaver.html
