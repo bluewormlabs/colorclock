@@ -31,6 +31,8 @@
 	NSDate *date = [NSDate date];
 	NSColor *color = [self getColorForTime:date];
     NSString *time;
+    CGFloat fontSize;
+    const BASE_FONT_SIZE = 20;
     NSDateFormatter *timeFormat = [NSDateFormatter new];
     NSFont *font;
     NSColor *fontColor = [NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:0.6];
@@ -38,11 +40,15 @@
     time = [timeFormat stringFromDate:date];
 	
 	[color set];
-	
+    
     NSSize screenSize = rect.size;
+    
+    //set the font size based on screen size
+    fontSize = BASE_FONT_SIZE * (screenSize.width / 200);
+    
 	[NSBezierPath fillRect:rect];	
 
-    font = [NSFont fontWithName:@"Verdana" size:200];
+    font = [NSFont fontWithName:@"Verdana" size:fontSize];
 	NSMutableParagraphStyle* style = [NSMutableParagraphStyle new];
 	[style setAlignment:NSCenterTextAlignment];
 
