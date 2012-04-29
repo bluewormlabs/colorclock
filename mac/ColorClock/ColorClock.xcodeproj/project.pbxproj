@@ -24,8 +24,8 @@
 		9B25EAF0154B78EB00157002 /* ColorClock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColorClock-Info.plist"; sourceTree = "<group>"; };
 		9B25EAF2154B78EB00157002 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9B25EAF4154B78EB00157002 /* ColorClock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorClock-Prefix.pch"; sourceTree = "<group>"; };
-		9B25EAF5154B78EB00157002 /* ColorClockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorClockView.h; sourceTree = "<group>"; };
-		9B25EAF7154B78EB00157002 /* ColorClockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorClockView.m; sourceTree = "<group>"; };
+		9B25EAF5154B78EB00157002 /* ColorClockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorClockView.h; sourceTree = "<group>"; usesTabs = 1; };
+		9B25EAF7154B78EB00157002 /* ColorClockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorClockView.m; sourceTree = "<group>"; usesTabs = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
