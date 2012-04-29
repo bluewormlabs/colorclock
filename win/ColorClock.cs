@@ -60,7 +60,7 @@ namespace ColorClock
 
 			// Set the fonts on the two labels
 			this.timeLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize()); ;
-			this.hexLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize(this.timeLabel.Font.Size / 10));
+			this.hexLabel.Font = new Font(this.font.FontFamily, (float)(this.DetermineFontSize() / 10.0));
 		}
 
 		/// <summary>
@@ -84,8 +84,8 @@ namespace ColorClock
 			this.Location = new Point(0, 0);
 
 			// Set the fonts on the two labels
-			this.timeLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize()); ;
-			this.hexLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize(this.timeLabel.Font.Size / 10));
+			this.timeLabel.Font = new Font(this.font.FontFamily, 6);
+			this.hexLabel.Font = new Font(this.font.FontFamily, 1);
 
 			// Mark that we're a preview
 			this.previewMode = true;
@@ -180,9 +180,7 @@ namespace ColorClock
 			Color color = ColorTranslator.FromHtml(hex);
 
 			// Update everything
-			this.timeLabel.Font = this.font;
 			this.timeLabel.Text = now.ToString("T");
-			this.hexLabel.Font = new Font(this.font.FontFamily, this.font.Size / 10);
 			this.hexLabel.Text = hex;
 			this.BackColor = color;
 		}
