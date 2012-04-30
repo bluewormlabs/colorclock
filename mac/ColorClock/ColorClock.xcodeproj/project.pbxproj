@@ -138,7 +138,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "South Dakota State University";
+				ORGANIZATIONNAME = "Blue Worm Labs, LLC";
 			};
 			buildConfigurationList = 9B25EADB154B78EA00157002 /* Build configuration list for PBXProject "ColorClock" */;
 			compatibilityVersion = "Xcode 3.2";
