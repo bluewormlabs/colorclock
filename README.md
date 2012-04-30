@@ -26,7 +26,7 @@ The Windows screensaver was built following Frank McCown's
 
 Mac
 ---
-Coming soon!
+Documentation coming soon.
 
 [TCC]: http://www.thecolourclock.co.uk/
 [WinTut]: http://www.harding.edu/fmccown/screensaver/screensaver.html
