@@ -35,7 +35,12 @@
 	const int BASE_FONT_SIZE = 20;
 	NSDateFormatter *timeFormat = [NSDateFormatter new];
 	NSFont *font;
-	NSColor *fontColor = [NSColor colorWithCalibratedRed:1.0 green:1.0 blue:1.0 alpha:0.6];
+	NSColor *fontColor = [NSColor colorWithCalibratedWhite:1 alpha:0.6];
+	NSColor *gradientStartColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.05];
+	NSColor *gradientEndColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.5];
+	NSGradient *gradient = [NSGradient new];
+	[gradient initWithStartingColor:gradientStartColor endingColor:gradientEndColor];
+	
 	[timeFormat setDateFormat:@"H:mm:ss"];
 	time = [timeFormat stringFromDate:date];
 	
@@ -57,10 +62,14 @@
     
 	NSDictionary *attr = [NSDictionary dictionaryWithObjects:values forKeys:keys];
 	NSSize stringSize = [time sizeWithAttributes:attr];
-	CGFloat y = ((screenSize.height / 2) -  (stringSize.height / 2));
+	//not sure why ((screenSize.height / 2) - (stringSize.height / 2)) doesn't center properly
+	// but when I divide the string height by 3 it's closer to center
+	CGFloat y = ((screenSize.height / 2) - (stringSize.height / 3));
 	CGFloat x = ((screenSize.width / 2) - (stringSize.width / 2));
-    
+
+	[gradient drawInRect:rect relativeCenterPosition:NSZeroPoint];
 	[time drawAtPoint:NSMakePoint(x, y) withAttributes:attr];
+
 	
 	[style release];    
 }
