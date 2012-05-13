@@ -29,26 +29,10 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.timeLabel = new System.Windows.Forms.Label();
 			this.timer = new System.Windows.Forms.Timer(this.components);
 			this.hexLabel = new System.Windows.Forms.Label();
+			this.gradientLabel = new GradientLabel.TextGradientLabel();
 			this.SuspendLayout();
-			// 
-			// timeLabel
-			// 
-			this.timeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.timeLabel.Font = new System.Drawing.Font("Arial Narrow", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.timeLabel.ForeColor = System.Drawing.Color.White;
-			this.timeLabel.Location = new System.Drawing.Point(12, 9);
-			this.timeLabel.Name = "timeLabel";
-			this.timeLabel.Size = new System.Drawing.Size(523, 343);
-			this.timeLabel.TabIndex = 0;
-			this.timeLabel.Text = "00:00:00 PM";
-			this.timeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.timeLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ColorClock_MouseClick);
-			this.timeLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColorClock_MouseMove);
 			// 
 			// timer
 			// 
@@ -69,14 +53,26 @@
 			this.hexLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ColorClock_MouseClick);
 			this.hexLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ColorClock_MouseMove);
 			// 
+			// gradientLabel
+			// 
+			this.gradientLabel.EndColor = System.Drawing.Color.Black;
+			this.gradientLabel.HorizontalAlignment = System.Drawing.StringAlignment.Center;
+			this.gradientLabel.Location = new System.Drawing.Point(29, 28);
+			this.gradientLabel.Name = "gradientLabel";
+			this.gradientLabel.Size = new System.Drawing.Size(207, 218);
+			this.gradientLabel.StartColor = System.Drawing.Color.White;
+			this.gradientLabel.TabIndex = 2;
+			this.gradientLabel.Text = "textGradientLabel1";
+			this.gradientLabel.VerticalAlignment = System.Drawing.StringAlignment.Center;
+			// 
 			// ColorClock
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Black;
 			this.ClientSize = new System.Drawing.Size(547, 361);
+			this.Controls.Add(this.gradientLabel);
 			this.Controls.Add(this.hexLabel);
-			this.Controls.Add(this.timeLabel);
 			this.ForeColor = System.Drawing.Color.LightGray;
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "ColorClock";
@@ -92,9 +88,9 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label timeLabel;
 		private System.Windows.Forms.Timer timer;
 		private System.Windows.Forms.Label hexLabel;
+		private GradientLabel.TextGradientLabel gradientLabel;
 	}
 }
 

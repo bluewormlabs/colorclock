@@ -81,9 +81,19 @@ namespace ColorClock
 			this.Bounds = bounds;
 
 			// Set the fonts on the two labels
-			this.timeLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize());
+			this.gradientLabel.Font = new Font(this.font.FontFamily, (float)this.DetermineFontSize());
 			this.hexLabel.Font = new Font(this.font.FontFamily, (float)(this.DetermineFontSize() / 10.0));
 
+			// Position the label
+			this.gradientLabel.Width = this.Width + 500;
+			this.gradientLabel.Height = this.Height + 500;
+			this.gradientLabel.Top = this.Top - 250;
+			this.gradientLabel.Left = this.Left - 250;
+			this.gradientLabel.TextAlign = ContentAlignment.MiddleCenter;
+			this.gradientLabel.VerticalAlignment = StringAlignment.Center;
+			this.gradientLabel.HorizontalAlignment = StringAlignment.Center;
+			this.gradientLabel.ForeColor = Color.Black;
+			
 			// Set the correct colors and display initial values
 			this.SetColors();
 			this.UpdateTime();
@@ -110,8 +120,18 @@ namespace ColorClock
 			this.Size = parent.Size;
 			this.Location = new Point(0, 0);
 
+			// Position the label
+			this.gradientLabel.Width = this.Width + 500;
+			this.gradientLabel.Height = this.Height + 500;
+			this.gradientLabel.Top = this.Top - 250;
+			this.gradientLabel.Left = this.Left - 250;
+			this.gradientLabel.TextAlign = ContentAlignment.MiddleCenter;
+			this.gradientLabel.VerticalAlignment = StringAlignment.Center;
+			this.gradientLabel.HorizontalAlignment = StringAlignment.Center;
+			this.gradientLabel.ForeColor = Color.Black;
+
 			// Set the fonts on the two labels
-			this.timeLabel.Font = new Font(this.font.FontFamily, 6);
+			this.gradientLabel.Font = new Font(this.font.FontFamily, 6);
 			this.hexLabel.Font = new Font(this.font.FontFamily, 1);
 
 			// Mark that we're a preview
@@ -198,7 +218,7 @@ namespace ColorClock
 		private void SetBlack()
 		{
 			this.BackColor = ColorClock.Black;
-			this.timeLabel.ForeColor = ColorClock.Black;
+			this.gradientLabel.ForeColor = ColorClock.Black;
 			this.hexLabel.ForeColor = ColorClock.Black;
 		}
 
@@ -207,7 +227,7 @@ namespace ColorClock
 		/// </summary>
 		private void SetColors()
 		{
-			this.timeLabel.ForeColor = ColorClock.White;
+			this.gradientLabel.ForeColor = ColorClock.Black;
 			this.hexLabel.ForeColor = ColorClock.WhiteSmoke;
 		}
 
@@ -230,9 +250,10 @@ namespace ColorClock
 			Color color = ColorTranslator.FromHtml(hex);
 
 			// Update everything
-			this.timeLabel.Text = now.ToString("T");
+			this.gradientLabel.Text = now.ToString("T");
 			this.hexLabel.Text = hex;
-			this.BackColor = color;
+			//this.BackColor = color;
+			this.gradientLabel.EndColor = color;
 		}
 
 		/// <summary>
