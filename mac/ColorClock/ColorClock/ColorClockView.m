@@ -38,8 +38,7 @@
 	NSColor *fontColor = [NSColor colorWithCalibratedWhite:1 alpha:0.6];
 	NSColor *gradientStartColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.05];
 	NSColor *gradientEndColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.5];
-	NSGradient *gradient = [NSGradient new];
-	[gradient initWithStartingColor:gradientStartColor endingColor:gradientEndColor];
+	NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientStartColor endingColor:gradientEndColor];
 	
 	[timeFormat setDateFormat:@"H:mm:ss"];
 	time = [timeFormat stringFromDate:date];
@@ -70,7 +69,8 @@
 	[gradient drawInRect:rect relativeCenterPosition:NSZeroPoint];
 	[time drawAtPoint:NSMakePoint(x, y) withAttributes:attr];
 
-	
+	[gradient release];
+	[timeFormat release];
 	[style release];    
 }
 
@@ -117,6 +117,8 @@
 	//get our color
 	NSString *hex = [NSString stringWithFormat:@"%X%X%X%X%X%X", (int)firstDigit, (int)secondDigit, (int)thirdDigit, (int)fourthDigit, (int)fifthDigit, (int)sixthDigit];
     
+	[formatter release];
+	
 	return hex;
 }
 
