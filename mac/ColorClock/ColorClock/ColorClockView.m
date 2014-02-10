@@ -7,12 +7,24 @@
 
 #import "ColorClockView.h"
 
-
 @implementation ColorClockView
+
+static NSString * const ColorClock = @"com.bluewormlabs.ColorClock";
 
 - (id)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview {
 	self = [super initWithFrame:frame isPreview:isPreview];
 	if (self) {
+		ScreenSaverDefaults * defaults;
+		defaults = [ScreenSaverDefaults defaultsForModuleWithName:ColorClock];
+
+		//register default values
+		[defaults registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
+									@"NO", @"timeFormat12",
+									@"YES", @"timeFormat24",
+									@"Verdana", @"fontName",
+									@"NO", @"showHexValue",
+									nil]];
+		
 		[self setAnimationTimeInterval:1/30.0];
 	}
 	return self;
@@ -31,17 +43,30 @@
 	NSDate *date = [NSDate date];
 	NSColor *color = [self getColorForTime:date];
 	NSString *time;
+	NSString *timeFormat;
+	NSString *hex;
 	CGFloat fontSize;
+	CGFloat hexFontSize;
 	const int BASE_FONT_SIZE = 20;
-	NSDateFormatter *timeFormat = [NSDateFormatter new];
+	NSDateFormatter *dateFormatter = [NSDateFormatter new];
 	NSFont *font;
+	NSFont *hexFont;
 	NSColor *fontColor = [NSColor colorWithCalibratedWhite:1 alpha:0.6];
 	NSColor *gradientStartColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.05];
 	NSColor *gradientEndColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.5];
 	NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientStartColor endingColor:gradientEndColor];
+	ScreenSaverDefaults * defaults;
+	defaults = [ScreenSaverDefaults defaultsForModuleWithName:ColorClock];
+	hex = [self getHexColorForTime:date];
 	
-	[timeFormat setDateFormat:@"H:mm:ss"];
-	time = [timeFormat stringFromDate:date];
+	if([defaults boolForKey:@"timeFormat12"]) {
+		timeFormat = @"h:mm:ss";
+	} else {
+		timeFormat = @"H:mm:ss";
+	}
+	
+	[dateFormatter setDateFormat:timeFormat];
+	time = [dateFormatter stringFromDate:date];
 	
 	[color set];
     
@@ -68,9 +93,18 @@
 
 	[gradient drawInRect:rect relativeCenterPosition:NSZeroPoint];
 	[time drawAtPoint:NSMakePoint(x, y) withAttributes:attr];
+	
+	//make the hex font size smaller
+	hexFontSize = BASE_FONT_SIZE * (screenSize.width / 2000);
+	hexFont = [NSFont fontWithName:@"Verdana" size:hexFontSize];
+	NSArray *hexFontValues = [NSArray arrayWithObjects:hexFont, style, fontColor, nil];
+	NSDictionary *hexAttr = [NSDictionary dictionaryWithObjects:hexFontValues forKeys:keys];
+	NSSize hexStringSize = [hex sizeWithAttributes:hexAttr];
+	CGFloat hexX = ((screenSize.width / 2) - (hexStringSize.width / 2));
+	[hex drawAtPoint:NSMakePoint(hexX, y) withAttributes:hexAttr];
 
 	[gradient release];
-	[timeFormat release];
+	[dateFormatter release];
 	[style release];    
 }
 
@@ -145,11 +179,47 @@
 }
 
 - (BOOL)hasConfigureSheet {
-	return NO;
+	return YES;
 }
 
 - (NSWindow*)configureSheet {
-	return nil;
+	if (!configSheet)
+	{
+		if (![NSBundle loadNibNamed:@"ConfigurationPanel" owner:self])
+		{
+			NSLog( @"Failed to load configure sheet." );
+			NSBeep();
+		}
+	}
+	
+	return configSheet;
+}
+
+- (IBAction)cancelClick:(id)sender {
+	[[NSApplication sharedApplication] endSheet:configSheet];
+}
+
+- (IBAction) okClick: (id)sender
+{
+	ScreenSaverDefaults *defaults;
+	
+	defaults = [ScreenSaverDefaults defaultsForModuleWithName:ColorClock];
+	
+	// Update our defaults
+	[defaults setBool:[timeFormat12 state]
+			   forKey:@"timeFormat12"];
+	[defaults setBool:[timeFormat24 state]
+			   forKey:@"timeFormat24"];
+	[defaults setValue:[fontName state]
+			   forKey:@"fontName"];
+	[defaults setBool:[showHexValue state]
+			   forKey:@"showHexValue"];
+	
+	// Save the settings to disk
+	[defaults synchronize];
+	
+	// Close the sheet
+	[[NSApplication sharedApplication] endSheet:configSheet];
 }
 
 @end

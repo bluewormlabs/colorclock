@@ -12,6 +12,7 @@
 		9B25EAF3154B78EB00157002 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B25EAF1154B78EB00157002 /* InfoPlist.strings */; };
 		9B25EAF6154B78EB00157002 /* ColorClockView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B25EAF5154B78EB00157002 /* ColorClockView.h */; };
 		9B25EAF8154B78EB00157002 /* ColorClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B25EAF7154B78EB00157002 /* ColorClockView.m */; };
+		9BC26A3918A97F5A000F2B44 /* ConfigurationPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC26A3818A97F5A000F2B44 /* ConfigurationPanel.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9B25EAF4154B78EB00157002 /* ColorClock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColorClock-Prefix.pch"; sourceTree = "<group>"; };
 		9B25EAF5154B78EB00157002 /* ColorClockView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorClockView.h; sourceTree = "<group>"; usesTabs = 1; };
 		9B25EAF7154B78EB00157002 /* ColorClockView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorClockView.m; sourceTree = "<group>"; usesTabs = 1; };
+		9BC26A3818A97F5A000F2B44 /* ConfigurationPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConfigurationPanel.xib; path = ../ConfigurationPanel.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		9B25EAEE154B78EB00157002 /* ColorClock */ = {
 			isa = PBXGroup;
 			children = (
+				9BC26A3A18A97F66000F2B44 /* Resources */,
 				9B25EAF5154B78EB00157002 /* ColorClockView.h */,
 				9B25EAF7154B78EB00157002 /* ColorClockView.m */,
 				9B25EAEF154B78EB00157002 /* Supporting Files */,
@@ -96,6 +99,14 @@
 				9B25EAF4154B78EB00157002 /* ColorClock-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9BC26A3A18A97F66000F2B44 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9BC26A3818A97F5A000F2B44 /* ConfigurationPanel.xib */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B25EAF3154B78EB00157002 /* InfoPlist.strings in Resources */,
+				9BC26A3918A97F5A000F2B44 /* ConfigurationPanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +229,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Debug;
 		};
@@ -233,7 +245,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.8;
 			};
 			name = Release;
 		};
