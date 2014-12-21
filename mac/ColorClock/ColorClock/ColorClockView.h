@@ -14,7 +14,6 @@
 	IBOutlet id timeFormat24;
 	IBOutlet id timeFormat12;
 	IBOutlet id showHexValue;
-	IBOutlet id fontName;
 	@private
 }
 

@@ -52,9 +52,6 @@ static NSString * const ColorClock = @"com.bluewormlabs.ColorClock";
 	NSFont *font;
 	NSFont *hexFont;
 	NSColor *fontColor = [NSColor colorWithCalibratedWhite:1 alpha:0.6];
-	NSColor *gradientStartColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.05];
-	NSColor *gradientEndColor = [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:0.5];
-	NSGradient *gradient = [[NSGradient alloc] initWithStartingColor:gradientStartColor endingColor:gradientEndColor];
 	ScreenSaverDefaults * defaults;
 	defaults = [ScreenSaverDefaults defaultsForModuleWithName:ColorClock];
 	hex = [self getHexColorForTime:date];
@@ -91,7 +88,6 @@ static NSString * const ColorClock = @"com.bluewormlabs.ColorClock";
 	CGFloat y = ((screenSize.height / 2) - (stringSize.height / 3));
 	CGFloat x = ((screenSize.width / 2) - (stringSize.width / 2));
 
-	[gradient drawInRect:rect relativeCenterPosition:NSZeroPoint];
 	[time drawAtPoint:NSMakePoint(x, y) withAttributes:attr];
 	
 	//make the hex font size smaller
@@ -103,9 +99,6 @@ static NSString * const ColorClock = @"com.bluewormlabs.ColorClock";
 	CGFloat hexX = ((screenSize.width / 2) - (hexStringSize.width / 2));
 	[hex drawAtPoint:NSMakePoint(hexX, y) withAttributes:hexAttr];
 
-	[gradient release];
-	[dateFormatter release];
-	[style release];    
 }
 
 - (void)animateOneFrame {    
@@ -151,7 +144,6 @@ static NSString * const ColorClock = @"com.bluewormlabs.ColorClock";
 	//get our color
 	NSString *hex = [NSString stringWithFormat:@"%X%X%X%X%X%X", (int)firstDigit, (int)secondDigit, (int)thirdDigit, (int)fourthDigit, (int)fifthDigit, (int)sixthDigit];
     
-	[formatter release];
 	
 	return hex;
 }
@@ -210,8 +202,6 @@ static NSString * const ColorClock = @"com.bluewormlabs.ColorClock";
 			   forKey:@"timeFormat12"];
 	[defaults setBool:[timeFormat24 state]
 			   forKey:@"timeFormat24"];
-	[defaults setValue:[fontName state]
-			   forKey:@"fontName"];
 	[defaults setBool:[showHexValue state]
 			   forKey:@"showHexValue"];
 	
